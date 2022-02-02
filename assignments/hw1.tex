@@ -48,8 +48,9 @@ to
 A spherically symmetric spacetime is realised by the Schwarzschild metric:
 \begin{equation}
     \diff s^2 = - \left(1 - \frac{2 G M}{r c^2}\right) c^2 \diff t^2
-    + \left(1 - \frac{2 G M}{r c^2}\right)^{-1}
-    (\diff x^2 + \diff y^2 + \diff z^2) \text{ ,}
+    + \left(1 - \frac{2 G M}{r c^2}\right)^{-1} \diff r^2
+    + r^2 \diff \Omega^2 \text{ ,}
+\label{eq:schwarz}
 \end{equation}
 where $M$ is a constant. This metric describes the empty space on the outside of
 a compact spherical distribution of mass at the origin, like a black hole or the
@@ -59,6 +60,7 @@ Sun. In that case, $M$ is the total mass of the central object.
 M}{r c^2} \ll 1$.
 
 In this regime the Schwarzschild metric can be approximated to leading order as
+\footnote{This may not be immediately obvious, but a suitable change of coordinates leads to this form.}
 \begin{equation}
     \diff s^2 = - \left(1 + \frac{2 \Phi}{c^2}\right) c^2 \diff t^2
     + \left(1 - \frac{2 \Phi}{c^2}\right)
@@ -189,20 +191,5 @@ and derive the remaining components.
     \lambda_r = \lambda_e \: \frac{1}{a(t_e)} \: \left(1 + a(t_e) \hat{n}_i v^i \right) \: \frac{1}{\left(1 - a(t_e)^2 v^i v_i\right)^{1/2}}
 \end{equation}
 and interpret each term in the above expression.
-
-\paragraph{b)} If the galaxy possesses a velocity $\left|\mathbf{v}\right| \ll
-c$ relative to the comoving frame (where $\mathbf{v}$ is measured in comoving
-units), the photon will additionally be Doppler shifted. Show that to leading
-order the observed redshift will be offset by an amount
-\begin{equation}
-    \Delta z = a_0 \left(\frac{v_\parallel}{c}
-    - \frac{1}{2} \left(\frac{v_\perp}{c}\right)^2\right) \text{ ,}
-\end{equation}
-where $v_\parallel$ and $v_\perp$ are components of the velocity along and
-transverse to the line of sight, respectively.
-
-\textbf{Note for Richard:} I'm not sure about that factor of $a_0$. I think it
-shows up because I calculated the Doppler shift at the time of emission.
-
 
 \end{document}
