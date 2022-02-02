@@ -108,45 +108,47 @@ path according to the equation of motion
     = \left(\frac{GM}{r^2}\right) \left(- \hat{r}\right) \text{.}
 \end{equation}
 This will perturb the path most significantly in the $y$ direction and we can
-assume that the $x$ component of the momentum is essentially unchanged. The
-$y$-component of the acceleration is
+assume that the $x$ component of the momentum is essentially unchanged.
+
+\paragraph{a)} In the Newtonian limit, show that the $y$-component of the acceleration is
 \begin{equation}
     \frac{\diff v_y}{\diff t} = - G M \frac{y}{\left(y^2 + x^2\right)^{3/2}}
     \approx - G M \frac{b}{\left(b^2 + x^2\right)^{3/2}} \text{ ,}
 \end{equation}
 where in the second equality we take $y \approx b$ because the deflection is
-very small. We can integrate this to find the velocity after the photon
-encounters the Sun:
+very small.
+% We can integrate this to find the velocity after the photon
+% encounters the Sun:
+% \begin{equation}
+% \begin{split}
+%     v_y(x \rightarrow \infty)
+%     &= - \int \diff t \frac{G M b}{\left(b^2 + x^2\right)^{3/2}}\\
+%     &= - \int_{-\infty}^\infty \diff x \frac{\diff t}{\diff x}
+%         \frac{G M b}{\left(b^2 + x^2\right)^{3/2}}\\
+%     &= - \frac{G M b}{c} \int_{-\infty}^\infty
+%         \frac{1}{\left(b^2 + x^2\right)^{3/2}}\\
+%     &= - \frac{2 G M}{b c} \text{.}
+% \end{split}
+% \end{equation}
+Integrate this along the \emph{unperturbed} path to show that the deflection angle is
 \begin{equation}
-\begin{split}
-    v_y(x \rightarrow \infty)
-    &= - \int \diff t \frac{G M b}{\left(b^2 + x^2\right)^{3/2}}\\
-    &= - \int_{-\infty}^\infty \diff x \frac{\diff t}{\diff x}
-        \frac{G M b}{\left(b^2 + x^2\right)^{3/2}}\\
-    &= - \frac{G M b}{c} \int_{-\infty}^\infty
-        \frac{1}{\left(b^2 + x^2\right)^{3/2}}\\
-    &= - \frac{2 G M}{b c} \text{.}
-\end{split}
-\end{equation}
-The deflection angle is
-\begin{equation}
-    \Delta \theta = \frac{v_y}{v_x} = - \frac{2 G M}{b}
-\end{equation}
-
-In this question, you will calculate the deflection angle in GR using the
+    \Delta \theta = \frac{v_y}{v_x} = - \frac{2 G M}{b} \; .
+\end{equation} \\[10pt]
+In this rest of this question, you will calculate the deflection angle in GR using the
 perturbed metric given above:
 
-\paragraph{a)} Using the geodesic equation for the metric in
-Equation~\ref{eq:schwarz_pert}, show that the equation of motion is to leading
-order
+\paragraph{b)} Using the geodesic equation for the metric in
+Equation~\ref{eq:schwarz_pert}, show that the equation of motion for a \emph{photon} is to leading order
 \begin{equation}
     \frac{\diff p_y}{\diff \lambda}
     = \frac{2 M b}{\left(x^2 + b^2\right)^{3/2}} p_x^2 \text{ ,}
 \end{equation}
 where $\lambda$ is an affine parameter for the geodesic.
 
-\paragraph{b)} Integrate the equation of motion from \textbf{a)} to find the
+\paragraph{c)} Integrate the equation of motion from \textbf{b)} to find the
 deflection angle.
+
+\paragraph{d)} Calculate the maximum observable deflection angle for light passing close to the sun, and in a few sentences describe how the Eddington expedition confirmed the general relativistic result for the deflection angle.
 
 \section{Redshift in the FRW metric}
 
@@ -175,6 +177,18 @@ This relationship defines the redshift $z$
 \begin{equation}
     \frac{\lambda_{obs}}{\lambda_0} = a_0^{-1} = 1 + z \text{ .}
 \end{equation}
+
+\paragraph{b)} Writing a particles peculiar velocity as $v^i = d x^i / dt$ show that the time component of its four-velocity is
+\begin{equation}
+    U^0 = (1 - a^2(t) v^i v_i)^{-1/2}
+\end{equation}
+and derive the remaining components.
+
+\paragraph{c)} Show that the full expression for the redshift seen by a comoving observer of a non-comoving galaxy in direction $\hat{\mathbf{n}}$ is
+\begin{equation}
+    \lambda_r = \lambda_e \: \frac{1}{a(t_e)} \: \left(1 + a(t_e) \hat{n}_i v^i \right) \: \frac{1}{\left(1 - a(t_e)^2 v^i v_i\right)^{1/2}}
+\end{equation}
+and interpret each term in the above expression.
 
 \paragraph{b)} If the galaxy possesses a velocity $\left|\mathbf{v}\right| \ll
 c$ relative to the comoving frame (where $\mathbf{v}$ is measured in comoving
