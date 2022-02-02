@@ -1,0 +1,194 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{lmodern}
+\usepackage{graphicx}
+
+\author{Tristan Pinsonneault-Marotte}
+\title{PHYS 571 HW 1 draft}
+\date{\today}
+
+\newcommand\diff{\mathrm{d}}
+
+\begin{document}
+
+\maketitle
+
+\section{Particle trapped on a sphere}
+(Dodelson 2.7, first edition)
+
+Find and apply the metric, Christoffel symbols, and Ricci scalar for a particle
+trapped on the surface of a sphere with radius $r$.
+
+\paragraph{a)} Using coordinates $t, \theta, \phi$, the metric is
+\begin{equation}
+    g_{\mu\nu} = \begin{pmatrix}
+        -1 & 0 & 0 \\
+        0 & r^2 & 0 \\
+        0 & 0 & r^2 \sin\theta
+    \end{pmatrix}
+    \text{ .}
+\end{equation}
+Show that the only nonvanishing Christoffel symbols are
+$\Gamma^\theta_{\phi\phi}$, $\Gamma^\phi_{\phi\theta}$ and
+$\Gamma^\phi_{\theta\phi}$. Express these in terms of $\theta$.
+
+\paragraph{b)} Use these and the geodesic equation to find the equations of
+motion for the particle.
+
+\paragraph{c)} Find the Ricci tensor\footnote{You might not be able to do this until next week}. Show that contraction of this tensor leads
+to
+\begin{equation}
+    \mathcal{R} = g^{\mu\nu} R_{\mu\nu} = \frac{2}{r^2} \text{ .}
+\end{equation}
+
+\section{Schwarzschild metric}
+
+A spherically symmetric spacetime is realised by the Schwarzschild metric:
+\begin{equation}
+    \diff s^2 = - \left(1 - \frac{2 G M}{r c^2}\right) c^2 \diff t^2
+    + \left(1 - \frac{2 G M}{r c^2}\right)^{-1}
+    (\diff x^2 + \diff y^2 + \diff z^2) \text{ ,}
+\end{equation}
+where $M$ is a constant. This metric describes the empty space on the outside of
+a compact spherical distribution of mass at the origin, like a black hole or the
+Sun. In that case, $M$ is the total mass of the central object.
+
+\paragraph{a)} Show that for typical distances in the solar system, $\frac{2 G
+M}{r c^2} \ll 1$.
+
+In this regime the Schwarzschild metric can be approximated to leading order as
+\begin{equation}
+    \diff s^2 = - \left(1 + \frac{2 \Phi}{c^2}\right) c^2 \diff t^2
+    + \left(1 - \frac{2 \Phi}{c^2}\right)
+    (\diff x^2 + \diff y^2 + \diff z^2) \text{ ,}
+\label{eq:schwarz_pert}
+\end{equation}
+where we've identified the Newtonian potential $\Phi = -GM/r$.
+
+Find the equation of motion for a massive particle traveling in this field
+(Dodelson 2.3). You can use the fact that the particle is non-relativistic, so
+$p^0 \gg p^i$.
+
+\paragraph{b)} Show that $\Gamma^0_{00} = c^{-3} \partial \Phi / \partial t$ and
+$\Gamma^i_{00} = c^{-2} \delta^{ij} \partial \Phi / \partial x^j$.
+
+\paragraph{c)} Show that the time component of the geodesic equation implies
+that energy $p^0 + m / c \Phi$ is conserved.
+
+\paragraph{d)} Show that the space components of the geodesic equation lead to
+$\diff p^i / \diff t = - m \delta^{ij} \partial \Phi / \partial x^j$ in
+agreement with Newtonian theory.
+
+\section{Gravitational redshift}
+
+The perturbed metric in Equation~\ref{eq:schwarz_pert} makes it clear that time
+intervals between events will be dilated according to the value of the
+gravitational potential $\Phi$ at the location where they take place. The ratio
+of elapsed time at two locations $A$ and $B$ is
+\begin{equation}
+    \frac{\Delta \tau_A}{\Delta \tau_B} \approx 1 + \frac{\Phi_A - \Phi_B}{c^2} \text.
+\end{equation}
+
+This effect was first experimentally demonstrated by Pound and Rebka in 1959. In
+a few sentences, describe how the experiment was performed.
+
+\section{Deflection of light}
+
+Consider a photon with a trajectory that grazes the sun, with closest approach
+at $y = b$. If it is unperturbed, the photon travels in a straight line,
+\begin{equation}
+    x = ct, \quad y = b, \quad z = 0 \text{ .}
+\end{equation}
+In Newtonian gravity, the Sun will deflect the photon from its straight line
+path according to the equation of motion
+\begin{equation}
+    \frac{\diff\mathbf{v}}{\diff t} = \nabla\left(\frac{GM}{r}\right)
+    = \left(\frac{GM}{r^2}\right) \left(- \hat{r}\right) \text{.}
+\end{equation}
+This will perturb the path most significantly in the $y$ direction and we can
+assume that the $x$ component of the momentum is essentially unchanged. The
+$y$-component of the acceleration is
+\begin{equation}
+    \frac{\diff v_y}{\diff t} = - G M \frac{y}{\left(y^2 + x^2\right)^{3/2}}
+    \approx - G M \frac{b}{\left(b^2 + x^2\right)^{3/2}} \text{ ,}
+\end{equation}
+where in the second equality we take $y \approx b$ because the deflection is
+very small. We can integrate this to find the velocity after the photon
+encounters the Sun:
+\begin{equation}
+\begin{split}
+    v_y(x \rightarrow \infty)
+    &= - \int \diff t \frac{G M b}{\left(b^2 + x^2\right)^{3/2}}\\
+    &= - \int_{-\infty}^\infty \diff x \frac{\diff t}{\diff x}
+        \frac{G M b}{\left(b^2 + x^2\right)^{3/2}}\\
+    &= - \frac{G M b}{c} \int_{-\infty}^\infty
+        \frac{1}{\left(b^2 + x^2\right)^{3/2}}\\
+    &= - \frac{2 G M}{b c} \text{.}
+\end{split}
+\end{equation}
+The deflection angle is
+\begin{equation}
+    \Delta \theta = \frac{v_y}{v_x} = - \frac{2 G M}{b}
+\end{equation}
+
+In this question, you will calculate the deflection angle in GR using the
+perturbed metric given above:
+
+\paragraph{a)} Using the geodesic equation for the metric in
+Equation~\ref{eq:schwarz_pert}, show that the equation of motion is to leading
+order
+\begin{equation}
+    \frac{\diff p_y}{\diff \lambda}
+    = \frac{2 M b}{\left(x^2 + b^2\right)^{3/2}} p_x^2 \text{ ,}
+\end{equation}
+where $\lambda$ is an affine parameter for the geodesic.
+
+\paragraph{b)} Integrate the equation of motion from \textbf{a)} to find the
+deflection angle.
+
+\section{Redshift in the FRW metric}
+
+Consider a galaxy in the FRW metric located a large distance from an observer.
+The galaxy emits a photon at wavelength $\lambda_0$ in its inertial reference
+frame. When the photon reaches the observer, its measured wavelength is
+$\lambda_{obs}$. We fix the scale factor to be $a=1$ when the observer measures
+the photon, and $a=a_0$ when it was emitted.
+
+\paragraph{a)} First, let's assume that the galaxy has no peculiar velocity with
+respect to the comoving frame defined by the metric. Recall that photons have
+four-momentum
+\begin{equation}
+    P^\mu = \left(E / c, \mathbf{p}\right) \text{ ,}
+\end{equation}
+where $E = hc / \lambda$, and an observer with four-velocity $U^\mu$ will
+measure their energy as
+\begin{equation}
+    E_R = g_{\mu \nu} U^\mu P^\nu \text{ .}
+\end{equation}
+Using the fact that the photon travels along a
+geodesic, show that the observed wavelength is $\lambda_{obs} = \lambda_0 /
+a_0$.
+
+This relationship defines the redshift $z$
+\begin{equation}
+    \frac{\lambda_{obs}}{\lambda_0} = a_0^{-1} = 1 + z \text{ .}
+\end{equation}
+
+\paragraph{b)} If the galaxy possesses a velocity $\left|\mathbf{v}\right| \ll
+c$ relative to the comoving frame (where $\mathbf{v}$ is measured in comoving
+units), the photon will additionally be Doppler shifted. Show that to leading
+order the observed redshift will be offset by an amount
+\begin{equation}
+    \Delta z = a_0 \left(\frac{v_\parallel}{c}
+    - \frac{1}{2} \left(\frac{v_\perp}{c}\right)^2\right) \text{ ,}
+\end{equation}
+where $v_\parallel$ and $v_\perp$ are components of the velocity along and
+transverse to the line of sight, respectively.
+
+\textbf{Note for Richard:} I'm not sure about that factor of $a_0$. I think it
+shows up because I calculated the Doppler shift at the time of emission.
+
+
+\end{document}
