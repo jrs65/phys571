@@ -17,7 +17,7 @@
 \DeclareSIUnit\h{h}
 
 \author{Tristan Pinsonneault-Marotte, Richard Shaw}
-\title{PHYS 571: Homework 1}
+\title{PHYS 571: Homework 2}
 \date{\today}
 
 \newcommand\diff{\mathrm{d}}
@@ -26,7 +26,7 @@
 
 \maketitle
 
-Deadline: Wednesday 16th February, 11:59 PM Pacific Time
+Deadline: Wednesday 2nd March February, 11:59 PM Pacific Time
 
 \section{Type IA Supernovae analysis mini-project}
 
@@ -49,7 +49,7 @@ Also, for testing your code, here are a few precalculated values
 Describe how type IA supernovae are detected, and how they are standardised to infer an absolute brightness. [3--4 paragraphs maximum]
 
 \paragraph{c)}
-Download the Union2.1 supernova data from here \url{https://supernova.lbl.gov/Union/}. You'll want the \emph{Compilation Magnitude vs. Redshift Table}, which gives the measured redshift and \emph{distance modulus} for 580 supernova, and the \emph{Covariance Matrix with Systematics}.
+Download the Union2.1 supernova data from here \url{https://supernova.lbl.gov/Union/}. You'll want the \emph{Compilation Magnitude vs. Redshift Table}, which gives the measured redshift and \emph{distance modulus} for 580 supernova, and the \emph{Covariance Matrix with Systematics}. This supernova data has already been standardised and so can be used directly.
 
 Using your code from part a) construct a $\chi^2$ function including the systematic errors for the Union2 supernova data in terms of $(\Omega_m, \Omega_\Lambda, h)$, and find the best fit parameters. \emph{[Tip: for checking your work I find the minimum $\chi^2$ to be $\sim 545$.]}
 
@@ -58,7 +58,7 @@ Plot the probability distribution $\mathcal{P}(\Omega_m, \Omega_\Lambda)$. You m
 \begin{equation}
 \mathcal{P}(d \mid \Omega_m, \Omega_\Lambda, h) \propto \exp{\left(-\frac{1}{2}\chi^2(\Omega_m, \Omega_\Lambda, h)\right)}
 \end{equation}
-and that there are flat priors on all parameters.
+and that there are flat priors on all parameters. Comment on the degeneracy between these parameters and how it could be broken.
 
 \emph{Tip: there are several ways you could do this, either an MCMC sampling scheme (see packages like \texttt{emcee} and \texttt{corner} for plotting), or evaluating the probability directly on a grid. If you struggle with compute time instead of marginalising over $h$ you may just fix $h$ to be the best-fit value from part c)}
 
