@@ -26,9 +26,14 @@
 
 \maketitle
 
-Deadline: Wednesday 2nd March, 11:59 PM Pacific Time
+\begin{itemize}
+    \item \textbf{Deadline}: Wednesday 2nd March, 11:59 PM Pacific Time
+    \item In this assignment you can set $c = \hbar = k_B = 1$.
+    \item The first three questions have equal weight to the data analysis mini-project.
+\end{itemize}
 
-In this assignment you can set $c = \hbar = k_B = 1$.
+
+
 
 \section{Flatness Problem}
 
@@ -96,8 +101,9 @@ In this question we use the standard shorthand for the Hubble parameter $h$ defi
 
 Write a routine to numerically calculate the comoving distance to specified redshifts given the cosmological parameters $(h, \Omega_m, \Omega_\Lambda)$, and plot the comoving, angular diameter and luminosity distances from redshifts $z = 0$--$3$ for $h = 0.7$, $\Omega_m = 0.3$ and $\Omega_k = 0$. Comment on why the angular diameter distance is not monotonic.
 
-\emph{Tips: to efficiently calculate the comoving distance for a large number of redshifts in one step, you might consider using \texttt{scipy.integrate.solve\_ivp}.
-Also, for testing your code, here are a few precalculated values
+\emph{Tips: to efficiently calculate the comoving distance for a large number of redshifts in one step, you might consider using \texttt{scipy.integrate.solve\_ivp}, with the \texttt{dense\_output=True} to get an interpolation function which you can use to evaluate at any redshift.}
+
+\emph{Also, for testing your code, here are a few precalculated values
 \begin{itemize}
     \item $D_L(z = 1, h = 0.7, \Omega_m = 0.3, \Omega_\Lambda = 0.2) = \SI{6050.2}{\mega\parsec}$.
     \item $D_L(z = 1.5, h = 0.75, \Omega_m = 0.4, \Omega_\Lambda = 0.9) = \SI{9921.1}{\mega\parsec}$.
@@ -120,7 +126,10 @@ Plot the probability distribution $\mathcal{P}(\Omega_m, \Omega_\Lambda)$. You m
 \end{equation}
 and that there are flat priors on all parameters. Comment on the degeneracy between these parameters and how it could be broken.
 
-\emph{Tip: there are several ways you could do this, either an MCMC sampling scheme (see packages like \texttt{emcee} and \texttt{corner} for plotting), or evaluating the probability directly on a grid. If you struggle with compute time instead of marginalising over $h$ you may just fix $h$ to be the best-fit value from part c)}
+\emph{Tips: there are several ways you could do this, either an MCMC sampling scheme (see packages like \texttt{emcee} and \texttt{corner} for plotting), or evaluating the probability directly on a grid. If you struggle with compute time instead of marginalising over $h$ you may just fix $h$ to be the best-fit value from part c).}
+
+\emph{Also, be wary of parts of parameter space with too crazy values, particularly those with large $\Omega_\Lambda$ and large negative $\Omega_k$, as they won't converge at high redshift. You may want to limit their ranges to avoid this.
+}
 
 \paragraph{e)}
 Show the $\Omega_\Lambda = 0$ is very is unlikely by a statistical method of your choosing.
