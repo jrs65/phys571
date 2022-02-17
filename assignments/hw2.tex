@@ -48,7 +48,7 @@ where $\rho_{crit}(t) \equiv 3 H^2 / 8 \pi G$. Show that
     \left(\Omega - 1\right) \text{ .}
 \end{equation}
 Discuss the evolution of $\Omega(a)$ for different values of $w$. What happens
-to small deviations from flatness $\Omega = 1 + \Omega_k$?
+to small deviations from flatness $\Omega = 1 - \Omega_k$?
 
 
 \section{Einstein's Biggest Blunder}
@@ -83,9 +83,10 @@ total energy density now, but early on the universe was radiation-dominated.
 
 \paragraph{(a)} Calculate the redshift at which the density of matter and
 radiation were equal, given the measured temperature of the CMB today $T_0 =
-2.73 K$. Note that at early times, the energy density in neutrinos is related to
-the energy density of photons as $\rho_\nu = 3 (7/8) (4/11)^{4/3} \rho_\gamma$
-(see Dodelson 2.4.4 for an explanation).
+2.73 K$. You can assume that photons and neutrinos were the only relativistic
+species up to this point. Note that at early times, the energy density in
+neutrinos is related to the energy density of photons as $\rho_\nu = 3 (7/8)
+(4/11)^{4/3} \rho_\gamma$ (see Dodelson 2.4.4 for an explanation).
 
 \paragraph{(b)} Calculate the redshift at which the density of the cosmological
 constant overtakes the density of matter.
@@ -99,7 +100,7 @@ In this question we use the standard shorthand for the Hubble parameter $h$ defi
 
 \paragraph{a)}
 
-Write a routine to numerically calculate the comoving distance to specified redshifts given the cosmological parameters $(h, \Omega_m, \Omega_\Lambda)$, and plot the comoving, angular diameter and luminosity distances from redshifts $z = 0$--$3$ for $h = 0.7$, $\Omega_m = 0.3$ and $\Omega_k = 0$. Comment on why the angular diameter distance is not monotonic.
+Write a routine to numerically calculate the comoving distance to specified redshifts given the cosmological parameters $(h, \Omega_m, \Omega_\Lambda)$, and plot the comoving, angular diameter and luminosity distances from redshifts $z = 0$--$5$ for $h = 0.7$, $\Omega_m = 0.3$ and $\Omega_\Lambda = 0.7$. Comment on why the angular diameter distance is not monotonic.
 
 \emph{Tips: to efficiently calculate the comoving distance for a large number of redshifts in one step, you might consider using \texttt{scipy.integrate.solve\_ivp}, with the \texttt{dense\_output=True} to get an interpolation function which you can use to evaluate at any redshift.}
 
