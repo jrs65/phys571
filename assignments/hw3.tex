@@ -1,0 +1,124 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{siunitx}
+\sisetup{separate-uncertainty,per-mode=symbol,binary-units}
+\DeclareSIUnit\Msolar{M_\odot}
+\DeclareSIUnit\degr{deg}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\dBm{dBm}
+\DeclareSIUnit\jansky{Jy}
+\DeclareSIUnit\beam{beam}
+\DeclareSIUnit\h{h}
+
+\author{Tristan Pinsonneault-Marotte, Richard Shaw}
+\title{PHYS 571: Homework 3}
+\date{\today}
+
+\newcommand\diff{\mathrm{d}}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+    \item \textbf{Deadline}: Wednesday 2nd March, 11:59 PM Pacific Time
+    \item In this assignment you can set $c = \hbar = k_B = 1$.
+    \item The first three questions have equal weight to the data analysis mini-project.
+\end{itemize}
+
+
+
+\section{Equilibrium Densities}
+
+\paragraph{a)} Show that in the relativistic limit, $m \ll T$, the number
+density of particles is
+\begin{equation}
+    n = \frac{\zeta(3)}{\pi^2} g T^3
+    \begin{cases}
+        1 \quad \text{for bosons} \\
+        \frac{3}{4} \quad \text{for fermions}
+    \end{cases}
+\end{equation}
+and the energy density is
+\begin{equation}
+    \rho = \frac{\pi^2}{30} g T^4
+    \begin{cases}
+        1 \quad \text{for bosons} \\
+        \frac{7}{8} \quad \text{for fermions}
+    \end{cases}
+    \text{.}
+\end{equation}
+You can assume that the chemical potential $\mu \ll T$.
+
+You will need the following standard integrals
+\begin{equation}
+    \int_0^{\infty} \diff x~\frac{x^n}{e^x - 1} = \zeta(n + 1) \Gamma(n + 1) \text{,}
+\end{equation}
+\begin{equation}
+    \int_0^{\infty} \diff x~x^n e^{-x^2} =
+    \frac{1}{2} \Gamma\left( \frac{1}{2} (n + 1) \right) \text{,}
+\end{equation}
+where $\zeta(x)$ is the Riemann zeta function.
+
+\emph{Hint:} Note that
+\begin{equation}
+    \frac{1}{e^x + 1} = \frac{1}{e^x - 1} - \frac{2}{e^{2x} - 1} \text{.}
+\end{equation}
+
+\paragraph{b)} Show that in the non-relativistic limit, $m \gg T$, the number
+density of particles is
+\begin{equation}
+    n = g \left(\frac{m T}{2 \pi}\right)^{3/2} e^{(\mu-m)/T} \text{,}
+\label{eq:nr-density}
+\end{equation}
+where you can use that $m - \mu \gg T$.
+
+Show that the energy density is to leading order in $p^2 / (2m)$
+\begin{equation}
+    \rho = m n + \frac{3}{2} n T \text{.}
+\end{equation}
+
+
+\section{Chemical Potential}
+
+\paragraph{a)} Given the temperature of the CMB today, $T_0 = 2.7$ K, calculate
+the baryon-to-photon ratio
+\begin{equation}
+    \eta = \frac{n_b}{n_\gamma}
+\end{equation}
+in terms of the baryon density today, $\Omega_b h^2$. Evaluate your result for
+$\Omega_b=0.05,\ h=0.7$.
+
+\paragraph{b)} (Baumann Problem Set 2.3)
+Show that the difference between the number densities of electrons and positrons
+in the relativistic limit ($m_e \ll T$) is
+\begin{equation}
+    n_e - \bar{n}_e \approx \frac{gT^3}{6 \pi^2}\left[\pi^2
+    \left(\frac{\mu_e}{T}\right) + \left(\frac{\mu_e}{T}\right)^3
+    \right] \text{,}
+\end{equation}
+where $\mu_e$ is the chemical potential.
+
+The electrical neutrality of the universe implies that the number of protons
+$n_p = n_e - \bar{n}_e$. Use this and your result for the brayon-to-photon ratio
+to estimate $\mu_e/T$.
+
+\paragraph{c)} Now consider the chemical potential in the non-relativistic limit
+($m \gg T$). To derive Equation~\ref{eq:nr-density} we had assumed that $m - \mu
+\gg T$ in this regime. Convert this limit to a constraint on the number density.
+Interpret this constraint by restoring the physical constants to the equation.
+
+
+\section{Saha Equation}
+calculate some equlibrium densities for recombination
+
+
+\section{}
+
+\end{document}
