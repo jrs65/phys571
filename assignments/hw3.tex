@@ -141,10 +141,6 @@ for the derivation):
 where $X_e = n_e / n_b$ is the fraction of free electrons to baryons ($n_b = n_p
 + n_H$) and $B_H$ is the binding energy of hydrogen.
 
-\paragraph{a)} Calculate the temperature and redshift at which the free electron
-fraction dropped to $X_e = 0.1$. \textbf{not sure if this is useful, as you
-probably need to compute numerically...}
-
 In reality, electrons don't remain in equilibrium forever, and the Saha equation
 becomes invalid. When the rate of expansion becomes greater than the rate of
 recombination, the density of electrons ``freezes out''. The deviation from
@@ -156,7 +152,7 @@ equilibrium is described by the Boltzmann equation
 where $\left<\sigma v\right>$ is the thermally averaged cross-section for
 recombination.
 
-\paragraph{b)} Approximating
+\paragraph{a)} Approximating
 \begin{equation}
     \left<\sigma v\right> \approx \sigma_T \left(\frac{B_H}{T}\right)^{1/2} \text{,}
 \end{equation}
@@ -173,12 +169,13 @@ In the equation above, we've defined
 \end{equation}
 and
 \begin{equation}
-    \lambda \equiv \left[\frac{n_b\left<\sigma v\right>}{xH}\right]_{x=1}
-    = 3.9 \times 10^3 \left(\frac{\Omega_b h}{0.03}\right)
+    \lambda \equiv \left[\frac{n_b\left<\sigma v\right> x}{H}\right]_{x=1}
+    = 5.3 \times 10^4 \left(\frac{\Omega_b h}{0.03}\right)
 \end{equation}
-\textbf{TODO: got through calculation in detail}
 
-\paragraph{c)} Numerically integrate Equation~\ref{eq:recomb} to produce a plot
+\emph{Hint: You can use the fact that the universe is matter dominated during recombination, and for the bulk of the expansion thereafter.}
+
+\paragraph{b)} Numerically integrate Equation~\ref{eq:recomb} to produce a plot
 of $X_e$ against temperature showing recombination and the freeze-out of
 electrons. On the same figure, plot the prediction of the Saha equation.
 
