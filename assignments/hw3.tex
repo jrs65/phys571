@@ -15,6 +15,7 @@
 \DeclareSIUnit\jansky{Jy}
 \DeclareSIUnit\beam{beam}
 \DeclareSIUnit\h{h}
+\DeclareSIUnit\GeV{GeV}
 
 \author{Tristan Pinsonneault-Marotte, Richard Shaw}
 \title{PHYS 571: Homework 3}
@@ -178,6 +179,44 @@ and
 \paragraph{b)} Numerically integrate Equation~\ref{eq:recomb} to produce a plot
 of $X_e$ against temperature showing recombination and the freeze-out of
 electrons. On the same figure, plot the prediction of the Saha equation.
+
+
+\section{Dark Matter}
+
+\emph{Baumann section 3.3.2 will be a good reference for this section.}
+\newcommand{\sigv}{\langle \sigma v \rangle}
+
+WIMPs are heavy particles that interact primarily via the weak interaction in the early Universe. They somewhat generically produce relic densities that make them an ideal explanation for dark matter.
+
+We assume that in the early Universe WIMPs have an annihilation interaction to a light standard model particle
+\begin{equation}
+    X + \bar{X} \leftrightarrow l + \bar{l} \; .
+\end{equation}
+This allows them to maintain equilibrium with the rest of the primordial plasma until they freeze out. This reaction has an unknown cross section $\sigv$.
+
+\paragraph{a)} Construct a Boltzmann equation representing this interaction and solve for the comoving abundance $N_x = k_B n_x / s$\footnote{$s a^3 / k_B$ is roughly the comoving number density of other relativistic particles.}, and plot the abundance against temperature for a \SI{10}{\GeV} WIMP with $\sigv = \SI{1e-26}{\centi\metre^3\per\second}$.
+
+As before you may find it easier to setup your solutions in terms of $x = M_X / T$ and with a generic parameter $\lambda$, and then map the desired parameters into this parameterisation.
+
+\paragraph{b)} To describe abundances in the present Universe we can use the fraction of the critical density $\Omega_i = \rho_i / \rho_\text{crit}$. However, when quoting measurements it is often more useful to use $\Omega_i h^2$ (where $h$ is defined by $H_0 = 100 h\: \si{\kilo\metre\per\second\per\mega\parsec}$) as this removes the dependence on the relatively inaccurate measurements of $H_0$.
+
+Make a heatmap of the scaled fraction of the critical density today for WIMP dark matter $\Omega_{dm} h^2 = M_X n_X^0 h^2 / \rho_\text{crit}^0$ showing how it varies over with particle masses $M_X$ from \SIrange{1}{100}{\GeV} and $\sigv$ from \SIrange{1e-28}{1e-24}{\centi\metre^3 \per\second}.
+
+Indicate the ranges that are compatible with the observed dark matter abundance from Planck $\Omega_c h^2 = 0.1206 \pm 0.0021$, and those that explain it fully.
+
+[\emph{Hint: you will need to evaluate the freeze out density for a large number of parameter combinations. However, the freeze out number density depends only on $\lambda$. Try tabulating this for a large range of $\lambda$ values and then use an interpolation over this table to get the results for the values of $M_X$ and $\sigv$ you are interested in.}]
+
+\paragraph{c)} Neutrinos may give an alternative model for dark matter. Assuming that all neutrinos decouple at the same time estimate the abundance today in cosmic neutrinos assuming the normal neutrino hierarchy which has two light neutrinos and one heavy one with a mass $m_{\nu_3} \approx \SI{0.05}{\mega\electronvolt}$.
+
+If there was a fourth neutrino flavour which was substantially heavier, how heavy would it need to be to explain the observed dark matter abundance?
+
+\paragraph{d)} After decoupling/last scattering particles \emph{free stream} until today. The distance that they can traverse in that time is called the \emph{free streaming length}, depending on the particle there can be two regimes, a period after decoupling where the particle is still relativistic (and it's velocity is $c$) and a later period where it is non-relativistic (and it's velocity redshifts $v \propto 1 / a$).
+
+\begin{itemize}
+    \item Calculate the free streaming length in Mpc for a plausible set of dark matter parameters (or the whole range above).
+    \item Calculate the free streaming length for a massive neutrino dark matter model.
+    \item Compare both answers to the scales of objects in the current Universe.
+\end{itemize}
 
 
 \end{document}
