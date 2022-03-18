@@ -180,6 +180,8 @@ and
 of $X_e$ against temperature showing recombination and the freeze-out of
 electrons. On the same figure, plot the prediction of the Saha equation.
 
+[\emph{Hint: for this problem, and the next section, your new favourite routine \texttt{scipy.integrate.solve\_ivp} is an excellent way to do this calculation. However, you may need to change the method from the default as the problem appears to be ``stiff''. I have found the \texttt{Radau} method with an \texttt{atol} of $10^{-15}$ to be a stable, accurate and fast configuration.}]
+
 
 \section{Dark Matter}
 
@@ -200,23 +202,35 @@ As before you may find it easier to setup your solutions in terms of $x = M_X / 
 
 \paragraph{b)} To describe abundances in the present Universe we can use the fraction of the critical density $\Omega_i = \rho_i / \rho_\text{crit}$. However, when quoting measurements it is often more useful to use $\Omega_i h^2$ (where $h$ is defined by $H_0 = 100 h\: \si{\kilo\metre\per\second\per\mega\parsec}$) as this removes the dependence on the relatively inaccurate measurements of $H_0$.
 
-Make a heatmap of the scaled fraction of the critical density today for WIMP dark matter $\Omega_{dm} h^2 = M_X n_X^0 h^2 / \rho_\text{crit}^0$ showing how it varies over with particle masses $M_X$ from \SIrange{1}{100}{\GeV} and $\sigv$ from \SIrange{1e-28}{1e-24}{\centi\metre^3 \per\second}.
+By numerically solving the Boltzmann equation, make a plot of the scaled fraction of the critical density today for WIMP dark matter $\Omega_{dm} h^2 = M_X n_X^0 h^2 / \rho_\text{crit}^0$ showing how it varies with $\sigv$ from \SIrange{1e-28}{1e-24}{\centi\metre^3 \per\second} with a fixed particle pass of $M_X = \SI{100}{\GeV}$.
 
 Indicate the ranges that are compatible with the observed dark matter abundance from Planck $\Omega_c h^2 = 0.1206 \pm 0.0021$, and those that explain it fully.
 
-[\emph{Hint: you will need to evaluate the freeze out density for a large number of parameter combinations. However, the freeze out number density depends only on $\lambda$. Try tabulating this for a large range of $\lambda$ values and then use an interpolation over this table to get the results for the values of $M_X$ and $\sigv$ you are interested in.}]
+[\emph{Bonus: if you're feeling ambitious you could show the abundance when varying both $\sigv$ and $M_X$ (from \SIrange{1}{100}{\GeV}) simultaneously in a heatmap. In this case you'll need to evaluate the freeze out density for a large number of parameter combinations. However, the freeze out number density depends only on $\lambda$. Try tabulating this for a large range of $\lambda$ values and then use an interpolation over this table to get the results for the values of $M_X$ and $\sigv$ you are interested in. There is no credit beyond kudos for this one.}]
 
 \paragraph{c)} Neutrinos may give an alternative model for dark matter. Assuming that all neutrinos decouple at the same time estimate the abundance today in cosmic neutrinos assuming the normal neutrino hierarchy which has two light neutrinos and one heavy one with a mass $m_{\nu_3} \approx \SI{0.05}{\mega\electronvolt}$.
 
 If there was a fourth neutrino flavour which was substantially heavier, how heavy would it need to be to explain the observed dark matter abundance?
 
-\paragraph{d)} After decoupling/last scattering particles \emph{free stream} until today. The distance that they can traverse in that time is called the \emph{free streaming length}, depending on the particle there can be two regimes, a period after decoupling where the particle is still relativistic (and it's velocity is $c$) and a later period where it is non-relativistic (and it's velocity redshifts $v \propto 1 / a$).
+\paragraph{d)} After decoupling particles \emph{free stream} in a straight line without any interaction until today. The distance that they can traverse in that time is called the \emph{free streaming length}.
 
+There are two periods of interest:
+\begin{itemize}
+    \item If a particle is relativistic after decoupling at $t_d$ it propagates as a nearly massless particle until $t_{nr}$ when it becomes non-relativistic.
+    \item After it becomes non-relativistic it continues to propagate while it's velocity redshifts away. After matter-radiation equality the mapping between time and scale factor changes and so only the comoving distance moved up until this era $a_{eq}$ is relevant.
+\end{itemize}
+Calculate the comoving distance for each of these contributions. For the first you can assume that the particle as massless all the way until $t_{nr}$, for the second you can assume that the physical velocity is $c$ at $t_{nr}$ and then redshifts away in the usual manner. You will find it easier to directly use the fact that $a \propto t^{1/2}$ during radiation domination and integrating in time (rather than changing your integration variables to $a$).
+
+Combine them to show that
+\begin{equation}
+    \chi_{fs} = \frac{2 c t_{nr}}{a_{nr}} \left[1 - \left(\frac{t_d}{t_{nr}}\right)^{1/2} + \ln{\left(\frac{a_{eq}}{a_{nr}}\right)}\right]
+\end{equation}
+and use this result to
 \begin{itemize}
     \item Calculate the free streaming length in Mpc for a plausible set of dark matter parameters (or the whole range above).
     \item Calculate the free streaming length for a massive neutrino dark matter model.
-    \item Compare both answers to the scales of objects in the current Universe.
 \end{itemize}
+Compare both answers to the scales of objects in the current Universe.
 
 
 \end{document}
