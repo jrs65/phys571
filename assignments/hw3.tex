@@ -28,9 +28,10 @@
 \maketitle
 
 \begin{itemize}
-    \item \textbf{Deadline}: Wednesday 2nd March, 11:59 PM Pacific Time
+    \item \textbf{Deadline}: Friday 1st April, 11:59 PM Pacific Time
     \item In this assignment you can set $c = \hbar = k_B = 1$.
-    \item The first three questions have equal weight to the data analysis mini-project.
+    \item The first three questions have equal weight, the final question has twice the weight of the others.
+    \item You are strongly encouraged to works in groups of 2 for questions 3 and 4, and you can submit identical notebooks for your solutions (you should each submit a copy though).
 \end{itemize}
 
 
@@ -185,7 +186,7 @@ electrons. On the same figure, plot the prediction of the Saha equation.
 
 \section{Dark Matter}
 
-\emph{Baumann section 3.3.2 will be a good reference for this section.}
+\emph{Baumann section 3.3.2 will be a very useful reference for this section.}
 \newcommand{\sigv}{\langle \sigma v \rangle}
 
 WIMPs are heavy particles that interact primarily via the weak interaction in the early Universe. They somewhat generically produce relic densities that make them an ideal explanation for dark matter.
@@ -196,25 +197,25 @@ We assume that in the early Universe WIMPs have an annihilation interaction to a
 \end{equation}
 This allows them to maintain equilibrium with the rest of the primordial plasma until they freeze out. This reaction has an unknown cross section $\sigv$.
 
-\paragraph{a)} Construct a Boltzmann equation representing this interaction and solve for the comoving abundance $N_x = k_B n_x / s$\footnote{$s a^3 / k_B$ is roughly the comoving number density of other relativistic particles.}, and plot the abundance against temperature for a \SI{10}{\GeV} WIMP with $\sigv = \SI{1e-26}{\centi\metre^3\per\second}$.
+\paragraph{a)} Construct a Boltzmann equation representing this interaction and solve for the comoving abundance $N_X = k_B n_X / s$, where $s$ is the entropy density\footnote{$s a^3 / k_B$ is roughly the comoving number density of other relativistic particles.}, and plot the abundance against temperature for a \SI{10}{\GeV} WIMP with $\sigv = \SI{e-26}{\centi\metre^3\per\second}$.
 
 As before you may find it easier to setup your solutions in terms of $x = M_X / T$ and with a generic parameter $\lambda$, and then map the desired parameters into this parameterisation.
 
 \paragraph{b)} To describe abundances in the present Universe we can use the fraction of the critical density $\Omega_i = \rho_i / \rho_\text{crit}$. However, when quoting measurements it is often more useful to use $\Omega_i h^2$ (where $h$ is defined by $H_0 = 100 h\: \si{\kilo\metre\per\second\per\mega\parsec}$) as this removes the dependence on the relatively inaccurate measurements of $H_0$.
 
-By numerically solving the Boltzmann equation, make a plot of the scaled fraction of the critical density today for WIMP dark matter $\Omega_{dm} h^2 = M_X n_X^0 h^2 / \rho_\text{crit}^0$ showing how it varies with $\sigv$ from \SIrange{1e-28}{1e-24}{\centi\metre^3 \per\second} with a fixed particle pass of $M_X = \SI{100}{\GeV}$.
+By numerically solving the Boltzmann equation, make a plot of the scaled fraction of the critical density today for WIMP dark matter $\Omega_{dm} h^2 = M_X n_X^0 h^2 / \rho_\text{crit}^0$ showing how it varies with $\sigv$ from \SIrange{e-28}{e-24}{\centi\metre^3 \per\second} with a fixed particle pass of $M_X = \SI{10}{\GeV}$.
 
 Indicate the ranges that are compatible with the observed dark matter abundance from Planck $\Omega_c h^2 = 0.1206 \pm 0.0021$, and those that explain it fully.
 
 [\emph{Bonus: if you're feeling ambitious you could show the abundance when varying both $\sigv$ and $M_X$ (from \SIrange{1}{100}{\GeV}) simultaneously in a heatmap. In this case you'll need to evaluate the freeze out density for a large number of parameter combinations. However, the freeze out number density depends only on $\lambda$. Try tabulating this for a large range of $\lambda$ values and then use an interpolation over this table to get the results for the values of $M_X$ and $\sigv$ you are interested in. There is no credit beyond kudos for this one.}]
 
-\paragraph{c)} Neutrinos may give an alternative model for dark matter. Assuming that all neutrinos decouple at the same time estimate the abundance today in cosmic neutrinos assuming the normal neutrino hierarchy which has two light neutrinos and one heavy one with a mass $m_{\nu_3} \approx \SI{0.05}{\mega\electronvolt}$.
+\paragraph{c)} Neutrinos may give an alternative model for dark matter. Assuming that all neutrinos decouple at the same time estimate the abundance today in cosmic neutrinos assuming the normal neutrino hierarchy which has two light neutrinos and one heavy one with a mass $m_{\nu_3} \approx \SI{0.05}{\electronvolt}$.
 
 If there was a fourth neutrino flavour which was substantially heavier, how heavy would it need to be to explain the observed dark matter abundance?
 
 \paragraph{d)} After decoupling particles \emph{free stream} in a straight line without any interaction until today. The distance that they can traverse in that time is called the \emph{free streaming length}. Any initial perturbation on scales smaller than this length are wiped out.
 
-There are two periods of interest:
+There are two periods of relevance:
 \begin{itemize}
     \item If a particle is relativistic after decoupling at $t_d$ it propagates as a nearly massless particle until $t_{nr}$ when it becomes non-relativistic.
     \item After it becomes non-relativistic it continues to propagate while it's velocity redshifts away. After matter-radiation equality the mapping between time and scale factor changes and so only the comoving distance moved up until this era $a_{eq}$ is relevant.
@@ -223,7 +224,7 @@ Calculate the comoving distance for each of these contributions. For the first y
 
 Combine them to show that
 \begin{equation}
-    \chi_{fs} = \frac{2 c t_{nr}}{a_{nr}} \left[1 - \left(\frac{t_d}{t_{nr}}\right)^{1/2} + \ln{\left(\frac{a_{eq}}{a_{nr}}\right)}\right]
+    \chi_{fs} = \frac{2 c \, t_{nr}}{a_{nr}} \left[1 - \left(\frac{t_d}{t_{nr}}\right)^{1/2} + \ln{\left(\frac{a_{eq}}{a_{nr}}\right)}\right]
 \end{equation}
 and use this result to
 \begin{itemize}
