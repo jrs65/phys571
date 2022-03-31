@@ -80,8 +80,8 @@ $\phi_0, \bar{\rho}_0$,
 \end{equation}
 where $D(t)$ is the growth factor that describes the evolution of first-order
 Eulerian perturbations, $\delta(\mathbf{x}, t) = D(t) \delta_0(\mathbf{x})$, and
-$D(t) = a(t)$ in a matter-dominated universe. You can assume that $D(t_0) \ll
-D(t)$ and use the result
+$D(t) \propto a(t)$ in a matter-dominated universe. You can assume that $D(t_0)
+\ll D(t)$ and use the result
 \begin{equation}
     \frac{a^2}{4 \pi \bar{\rho}_0} \frac{\diff D}{\diff t} = \int \diff t \frac{D}{a} \text{.}
 \end{equation}
@@ -96,7 +96,7 @@ CAMB\footnote{\url{camb.readthedocs.io}} to generate the matter power spectrum
 at early times ($z=1000$ is a good choice) with the following parameters: $H_0 =
 67.0$ km/s/Mpc, $\Omega_b = 0.05$ and $\Omega_c = 0.25$ (you can leave the
 others as default). Draw a realisation of 2-dimensional Gaussian density
-fluctuations $\delta_0(k_x, k_y)$ from this power spectrum up to $k < 2$
+fluctuations $\delta_0(k_x, k_y)$ from this power spectrum up to $k < 4$
 $h$/Mpc, and Fourier transform it to obtain an initial density contrast field
 $\delta_0(x, y)$.
 
