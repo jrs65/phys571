@@ -95,7 +95,7 @@ code to complete this part. But feel free to try it out on your own!)} Use
 CAMB\footnote{\url{camb.readthedocs.io}} to generate the matter power spectrum
 at early times ($z=1000$ is a good choice) with the following parameters: $H_0 =
 67.0$ km/s/Mpc, $\Omega_b = 0.05$ and $\Omega_c = 0.25$ (you can leave the
-others as default). Draw a realisation of 2-dimensional Gaussian density
+others as default). Draw a realisation of 3-dimensional Gaussian density
 fluctuations $\delta_0(k_x, k_y)$ from this power spectrum up to $k < 4$
 $h$/Mpc, and Fourier transform it to obtain an initial density contrast field
 $\delta_0(x, y)$.
@@ -107,15 +107,15 @@ displacement field at a few redshift slices ($z \in \{100, 10, 5, 1\}$ or more).
 At each of these redshifts, make a plot of the particle positions to see
 large-scale structure take form.
 
-\emph{(Hint)} There are a few ways you could visualise this (don't hesitate to be
-creative), but one is as follows: Start with a set of particle positions
-arranged uniformly on a grid in your 2-d space. At each redshift slice, evaluate
-the displacement field you computed at the starting position (Lagrangian
-coordinate) of each particle and add it to the starting position to obtain its
-current position. Make a scatter plot of the positions of the displaced
-particles. At low redshifts, you will see the particles clump together and form
-the cosmic web! You can play around with the number of particles in order to get
-a satisfying visualisation.
+\emph{(Hint)} There are a few ways you could visualise this (don't hesitate to
+be creative), but one is as follows: Start with a set of particle positions
+arranged uniformly on a plane in your 3-d space. At each redshift slice,
+evaluate the displacement field you computed at the starting position
+(Lagrangian coordinate) of each particle and add it to the starting position to
+obtain its current position. Make a scatter plot of the positions of the
+displaced particles projected onto the initial plane. At low redshifts, you will
+see the particles clump together and form the cosmic web! You can play around
+with the number of particles in order to get a satisfying visualisation.
 
 \emph{(Hint)} You will need to know how to take the Laplacian of a field using
 the discrete Fourier transform. Given $N$ discrete samples of a field $\phi_j =
@@ -136,5 +136,23 @@ and it's transform is therefore
 \begin{equation}
     \tilde{\nabla^2 \phi}_n = - \left(2 \pi \frac{n}{N}\right)^2 \tilde{\phi}_n \text{.}
 \end{equation}
+
+\paragraph{d)} Compute the power spectrum of density fluctuations using the
+Zel'dovich approximation at redshift $z=10$ (but feel free to do so at other
+redshifts too). On the same plot, show the linear power spectrum (from CAMB).
+How do they differ?
+
+\emph{(Hint)} Do to this you will need to convert your displaced particles back
+into a density fluctuation field. You can use the
+\texttt{pynbody}\footnote{\url{https://pynbody.github.io/pynbody/index.html}}
+package for this. Create a particle catalog using \texttt{pynbody.new} and
+populate it with your particle positions. The function
+\texttt{pynbody.sph.to\_3d\_grid} can then be used to transform these positions
+into a density field $\rho$ on a regular grid. From there you can calculate the
+density contrast $\delta$ and Fourier transform it to evaluate the power
+spectrum. Pay attention to the normalisation of the latter. You may find the
+function \texttt{numpy.bincount} useful to compute the average of the
+$\left<\delta^2(\mathbf{k})\right>$ along circles of constant
+$\left|\mathbf{k}\right|$.
 
 \end{document}
