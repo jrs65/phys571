@@ -5,6 +5,7 @@
 \usepackage{lmodern}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\input{mathdef}
 
 \usepackage{siunitx}
 \sisetup{separate-uncertainty,per-mode=symbol,binary-units}
@@ -21,11 +22,12 @@
 \title{PHYS 571: Homework 4}
 \date{\today}
 
-\newcommand\diff{\mathrm{d}}
+\renewcommand\diff{\mathrm{d}}
 
 \begin{document}
 
 \maketitle
+
 
 \begin{itemize}
     \item \textbf{Deadline}: Friday 1st April, 11:59 PM Pacific Time
@@ -154,5 +156,48 @@ spectrum. Pay attention to the normalisation of the latter. You may find the
 function \texttt{numpy.bincount} useful to compute the average of the
 $\left<\delta^2(\mathbf{k})\right>$ along circles of constant
 $\left|\mathbf{k}\right|$.
+
+\paragraph{e)} Outside the local Universe we are unable to directly measure the distance to other galaxies and so we assume that the observed redshift can be directly mapped to the comoving distance via the usual integral relationship.
+
+However, the observed redshift of a galaxy has a contributions from its peculiar motion (c.f. homework 1, question 5) not just the expansion of the Universe, and this biases the inferred radial position. Show that for a galaxy located at \emph{true} comoving position $\vx = \chi \vnhat$, the inferred radial distance to the object $\chi_s$ is
+\begin{equation}
+    \chi_s = \chi + \frac{1 + z}{H(z)}\vnhat \cdot \vv(\vx)
+\end{equation}
+where $\vv(\vx)$ is the physical velocity field and $z$ is the ``true'' redshift of the galaxy.
+
+The inferred position of galaxies defines a new coordinate system $\vs = \chi_s \vnhat$ which is termed \emph{redshift-space}, as opposed to the coordinate system $\vx$ which is real-space. As the peculiar velocities are correlated with the underlying density field, this produce coherent artifacts in the observed distribution of galaxies, known as \emph{redshift-space distortions} or RSDs that must be carefully accounted for in any large-scale structure analysis.
+
+Show that using the Zel'dovich approximation, the position of a particle in \emph{redshift space} that is at Lagrangian position $\vq$ is
+\begin{equation}
+\vs = \vq + \left(\mathbf{I} + f \, \vnhat \vnhat^T\right) \mathbf{\Psi}(\vq, t)
+\end{equation}
+where $f$ is the growth factor
+\begin{equation}
+f = \frac{d \log D}{d \log a} \; .
+\end{equation}
+Apply this to your Zel'dovich simulation and compare the apparent structure in redshift-space to that in real-space.
+
+\paragraph{f)} The amount of mass or numbers of galaxies is the same within equivalent volumes in Eulerian, Lagrangian and redshift space, i.e.
+\begin{equation}
+    \bar{\rho} d^3q = \bar{\rho} \ls 1 + \delta(\vx)\rs d^3x = \bar{\rho} \ls 1 + \delta_s(\vs)\rs d^3s
+\end{equation}
+Use this to show that the Eulerian density perturbation is
+\begin{equation}
+    \delta(\vx) = \nabla_q \cdot \mathbf{\Psi}(\vq)
+\end{equation}
+at first order in $\mathbf{\Psi}$, where you might want to use the result that $\det{(\mI + \epsilon \mX)} = 1 + \epsilon \tr{\mX} + O(\epsilon^2)$, and show that is consistent with the results of part a).
+
+Using the results in part e) show that the conservation of mass in equivalent volumes means the density perturbation in redshift space at first order is given by
+\begin{equation}
+    \delta_s(\vs) = \nabla_q \cdot \mathbf{\Psi}(\vq) + f \, \vnhat \cdot \nabla_q (\vnhat \cdot \mathbf{\Psi}(\vq))
+\end{equation}
+and that when combined with the results of part a) in k-space this is equivalent to
+\begin{equation}
+    \delta_s(\vk) = \delta(\vk) \lp 1 + f \mu^2 \rp
+\end{equation}
+where $\mu$ is the cosine of the angle of the Fourier k-vector to the line of site direction, i.e. $\mu = \vnhat \cdot \vk / k$. This is the famous \emph{Kaiser}\footnote{\url{https://ui.adsabs.harvard.edu/abs/1987MNRAS.227....1K/abstract}} result explaining the apparent anisotropy of the observed matter power spectrum.
+
+Can you find this signal in the sky realisation you generated in part e).
+
 
 \end{document}
