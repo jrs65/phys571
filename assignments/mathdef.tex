@@ -1,0 +1,201 @@
+%!TEX root=beamforming.tex
+
+%%% Standard math package imports
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{mathtools}
+
+
+
+%%% Derivatives
+\newcommand\pdiff[1]{\frac{\partial}{\partial #1}}
+\newcommand\diff[2]{\frac{d #1}{d #2}}
+\newcommand{\curl}{\,\mbox{curl}\,}
+\newcommand\del{\nabla}
+\newcommand{\grad}[1][]{\ensuremath{\mathbf{\nabla} #1}}
+
+
+
+%% Macros for inserting various types of brackets
+\newcommand{\la}{\ensuremath{\left\langle}}  % Angle brackets
+\newcommand{\ra}{\ensuremath{\right\rangle}}
+
+\newcommand{\lv}{\ensuremath{\left\lvert}}   % Vertical bars
+\newcommand{\rv}{\ensuremath{\right\rvert}}
+
+\newcommand{\ls}{\ensuremath{\left[}}        % Square brackets
+\newcommand{\rs}{\ensuremath{\right]}}
+
+\newcommand{\lp}{\ensuremath{\left(}}        % Parentheses
+\newcommand{\rp}{\ensuremath{\right)}}
+
+%% Macros for equations
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+
+
+%%% Macros for linear algebra notation
+\renewcommand{\vec}[1]{{\boldsymbol{\mathbf{#1}}}}
+\newcommand{\mat}[1]{{\boldsymbol{\mathbf{#1}}}}
+
+% Hermitian conjugate symbol
+\newcommand{\hconj}{\ensuremath{\dagger}}
+
+% Hat scalars
+\newcommand{\phat}{\hat{p}}
+
+% Lower case vectors
+\newcommand{\va}{\vec{a}}
+\newcommand{\vc}{\vec{c}}
+\newcommand{\vd}{\vec{d}}
+\newcommand{\vk}{\vec{k}}
+\newcommand{\vn}{\vec{n}}
+\newcommand{\vp}{\vec{p}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\vs}{\vec{s}}
+\newcommand{\vt}{\vec{t}}
+\newcommand{\vu}{\vec{u}}
+\newcommand{\vv}{\vec{v}}
+\newcommand{\vw}{\vec{w}}
+\newcommand{\vx}{\vec{x}}
+\newcommand{\vq}{\vec{q}}
+\newcommand{\vy}{\vec{y}}
+\newcommand{\vb}{\vec{b}}
+
+% Unit vectors
+\newcommand{\vbhat}{\hat{\vec{b}}}
+\newcommand{\vdhat}{\hat{\vec{d}}}
+\newcommand{\vehat}{\hat{\vec{e}}}
+\newcommand{\vnhat}{\hat{\vec{n}}}
+\newcommand{\vphat}{\hat{\vec{p}}}
+\newcommand{\vrhat}{\hat{\vec{r}}}
+\newcommand{\vuhat}{\hat{\vec{u}}}
+\newcommand{\vvhat}{\hat{\vec{v}}}
+\newcommand{\vwhat}{\hat{\vec{w}}}
+\newcommand{\vxhat}{\hat{\vec{x}}}
+\newcommand{\vyhat}{\hat{\vec{y}}}
+\newcommand{\vzhat}{\hat{\vec{z}}}
+
+% Vectors with tildes
+\newcommand{\vnt}{\tilde{\vec{n}}}
+\newcommand{\vvt}{\tilde{\vec{v}}}
+\newcommand{\vxt}{\tilde{\vec{x}}}
+
+% Vectors with bars
+\newcommand{\vnb}{\bar{\vec{n}}}
+\newcommand{\vvb}{\bar{\vec{v}}}
+
+% Upper case vectors
+\newcommand{\vA}{\vec{A}}
+\newcommand{\vE}{\vec{E}}
+\newcommand{\vH}{\vec{H}}
+\newcommand{\vS}{\vec{S}}
+
+% Greek vectors
+\newcommand{\veps}{\vec{\varepsilon}}
+\newcommand{\vmu}{\vec{\mu}}
+\newcommand{\vtheta}{\vec{\theta}}
+
+
+% Upper case matrices
+\newcommand{\mA}{\mat{A}}
+\newcommand{\mB}{\mat{B}}
+\newcommand{\mC}{\mat{C}}
+\newcommand{\mE}{\mat{E}}
+\newcommand{\mF}{\mat{F}}
+\newcommand{\mG}{\mat{G}}
+\newcommand{\mI}{\mat{I}}
+\newcommand{\mJ}{\mat{J}}
+\newcommand{\mK}{\mat{K}}
+\newcommand{\mM}{\mat{M}}
+\newcommand{\mN}{\mat{N}}
+\newcommand{\mP}{\mat{P}}
+\newcommand{\mQ}{\mat{Q}}
+\newcommand{\mR}{\mat{R}}
+\newcommand{\mS}{\mat{S}}
+\newcommand{\mT}{\mat{T}}
+\newcommand{\mU}{\mat{U}}
+\newcommand{\mV}{\mat{V}}
+\newcommand{\mW}{\mat{W}}
+\newcommand{\mX}{\mat{X}}
+\newcommand{\mY}{\mat{Y}}
+
+\newcommand{\mNh}{\mat{N}^{\scriptscriptstyle -1/2}}
+
+% Matrices with tildes
+\newcommand{\mBt}{\tilde{\mat{B}}}
+\newcommand{\mCt}{\tilde{\mat{C}}}
+\newcommand{\mNt}{\tilde{\mat{N}}}
+\newcommand{\mQt}{\tilde{\mat{Q}}}
+\newcommand{\mSt}{\tilde{\mat{S}}}
+
+% Matrices denoted by greek letters
+\newcommand{\mGamma}{\mat{\Gamma}}
+\newcommand{\mLambda}{\mat{\Lambda}}
+\newcommand{\mLambdat}{\tilde{\mat{\Lambda}}}  % with a tilde
+\newcommand{\mSigma}{\mat{\Sigma}}
+
+%Matrices with bars
+\newcommand{\mBb}{\bar{\mat{B}}}
+\newcommand{\mCb}{\bar{\mat{C}}}
+\newcommand{\mFb}{\bar{\mat{F}}}
+\newcommand{\mNb}{\bar{\mat{N}}}
+\newcommand{\mSb}{\bar{\mat{S}}}
+
+% Matrices with hats
+\newcommand{\mChat}{\hat{\mat{C}}}
+
+
+
+%%% Add some new operators
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\tri}{tri}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\mvec}{vec}
+\DeclareMathOperator{\argmax}{argmax}
+
+
+\newcommand{\brsc}[1]{{\ensuremath{\scriptscriptstyle (#1)}}}
+
+
+%%% Miscellaneous symbols
+
+\newcommand{\appropto}{\mathrel{\vcenter{
+  \offinterlineskip\halign{\hfil$##$\cr
+    \propto\cr\noalign{\kern2pt}\sim\cr\noalign{\kern-2pt}}}}}
+
+% Caligraphic letters
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\calZ}{\mathcal{Z}}
+
+% Text for denoting max and min
+\newcommand{\tmax}{\ensuremath{\text{max}}}
+\newcommand{\tmin}{\ensuremath{\text{min}}}
+
+% Binary operators
+\newcommand{\kprod}{\otimes}
+
+% Measure for integrating over the sphere
+\newcommand{\dhn}{d^2\hat{n}}
+
+
+%%% Units for cosmology (generally try to use the siunitx packages)
+\newcommand{\hMpc}{\;h^{-1}\:\mathrm{Mpc}}
+\newcommand{\ihMpc}{\;h\:\mathrm{Mpc}^{-1}}
+
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\prob}[1]{\mathrm{Pr}(#1)}
+
+% Command to add number to unnumbered equation
+% (useful to assign number to final line of align* environment)
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
