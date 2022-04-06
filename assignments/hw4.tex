@@ -163,7 +163,7 @@ However, the observed redshift of a galaxy has a contributions from its peculiar
 \begin{equation}
     \chi_s = \chi + \frac{1 + z}{H(z)}\vnhat \cdot \vv(\vx)
 \end{equation}
-where $\vv(\vx)$ is the physical velocity field and $z$ is the ``true'' redshift of the galaxy.
+where $\vv(\vx)$ is the physical velocity field and $z$ is the ``true'' redshift of the galaxy, and $\vnhat$ is the unit vector along the radial direction.
 
 The inferred position of galaxies defines a new coordinate system $\vs = \chi_s \vnhat$ which is termed \emph{redshift-space}, as opposed to the coordinate system $\vx$ which is real-space. As the peculiar velocities are correlated with the underlying density field, this produce coherent artifacts in the observed distribution of galaxies, known as \emph{redshift-space distortions} or RSDs that must be carefully accounted for in any large-scale structure analysis.
 
@@ -175,7 +175,7 @@ where $f$ is the growth rate
 \begin{equation}
 f = \frac{d \log D}{d \log a} \; .
 \end{equation}
-Apply this to your Zel'dovich simulation and compare the apparent structure in redshift-space to that in real-space.
+Apply this to your Zel'dovich simulation and compare the apparent structure in redshift-space to that in real-space. Note that the galaxies are located at cosmological distances from the observer, so the line of sight direction vector $\vnhat$ can be approximated as constant and identified with one of the axes of your simulated volume.
 
 \paragraph{f)} The amount of mass or numbers of galaxies is the same within equivalent volumes in Eulerian, Lagrangian and redshift space, i.e.
 \begin{equation}
