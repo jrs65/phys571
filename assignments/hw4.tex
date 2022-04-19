@@ -77,16 +77,16 @@ to integrate in time and derive the following expression for the displacement
 field in terms of the gravitational potential and density at an early time
 $\phi_0, \bar{\rho}_0$,
 \begin{equation}
-    \mathbf{\Psi}(\mathbf{q}, t) = \frac{-\nabla \phi_0}{4 \pi G \bar{\rho}_0} D(t)
+    \mathbf{\Psi}(\mathbf{q}, t) = \frac{-\nabla \phi_0}{4 \pi G \bar{\rho}_0 a_0^2} D(t)
     \text{,}
 \label{eq:za}
 \end{equation}
-where $D(t)$ is the growth factor that describes the evolution of first-order
-Eulerian perturbations, $\delta(\mathbf{x}, t) = D(t) \delta_0(\mathbf{x})$, and
-$D(t) \propto a(t)$ in a matter-dominated universe. You can assume that $D(t_0)
+where $a_0 = 1 / (1 + z_0) \neq 1$ and $D(t)$ is the growth factor that describes the evolution of first-order
+Eulerian perturbations, $\delta(\mathbf{x}, t) = D(t) \delta_0(\mathbf{x})$. As
+$D(t) \propto a(t)$ in a matter-dominated universe, you can assume that $D(t_0)
 \ll D(t)$ and use the result
 \begin{equation}
-    \frac{a^2}{4 \pi \bar{\rho}_0} \frac{\diff D}{\diff t} = \int \diff t \frac{D}{a} \text{.}
+    \frac{a^2}{4 \pi \bar{\rho}_0 a_0^3} \frac{\diff D}{\diff t} = \int \diff t \frac{D}{a} \text{.}
 \end{equation}
 The Zel'dovich approximation consists in using Equation~\ref{eq:za} to calculate
 the growth of structure in the universe. It turns out that the density field
@@ -149,6 +149,8 @@ How do they differ?
 
 \emph{(Hint)} to make this easier we have included two helpful routines that we have tested work. One will take an array of particle positions and assign all their mass into the nearest locations in a regular cartesian grid (note this requires you to install the \texttt{pynbody}\footnote{\url{https://pynbody.github.io/pynbody/index.html}} package. The second takes a regular grid of densities and estimates the 3D power spectrum of that grid. If you decide to use these, you should try and understand how they work.
 
+\emph{Dealing with the finite box size effects with these routines is tricky and I have found that although these routines work accurately on the initial realisation $\delta_0$ on the Zel'dovich realisations they estimate $\sim 3 \times$ more power than the linear power spectrum predicts at all redshifts.}
+
 \paragraph{e)} Outside the local Universe we are unable to directly measure the distance to other galaxies and so we assume that the observed redshift can be directly mapped to the comoving distance via the usual integral relationship.
 
 However, the observed redshift of a galaxy has a contributions from its peculiar motion (c.f. homework 1, question 5) not just the expansion of the Universe, and this biases the inferred radial position. Show that for a galaxy located at \emph{true} comoving position $\vx = \chi \vnhat$, the inferred radial distance to the object $\chi_s$ is
@@ -175,13 +177,13 @@ Apply this to your Zel'dovich simulation and compare the apparent structure in r
 \end{equation}
 Without assuming any form for $\mathbf{\Psi}$ show that the Eulerian density perturbation is
 \begin{equation}
-    \delta(\vx) = \nabla_q \cdot \mathbf{\Psi}(\vq)
+    \delta(\vx) = - \nabla_q \cdot \mathbf{\Psi}(\vq)
 \end{equation}
-at first order in $\mathbf{\Psi}$, where you might want to use the result that $\det{(\mI + \epsilon \mX)} = 1 + \epsilon \tr{\mX} + O(\epsilon^2)$, and then show that is consistent with the form os $\mathbf{\Psi}$ derived in part a).
+at first order in $\mathbf{\Psi}$, where you might want to use the result that $\det{(\mI + \epsilon \mX)} = 1 + \epsilon \tr{\mX} + O(\epsilon^2)$, and then show that is consistent with the form of $\mathbf{\Psi}$ derived in part a).
 
 Using the results in part e) show that the conservation of mass in equivalent volumes means the density perturbation in redshift-space at first order is given by
 \begin{equation}
-    \delta_s(\vs) = \nabla_q \cdot \mathbf{\Psi}(\vq) + f \, \vnhat \cdot \nabla_q (\vnhat \cdot \mathbf{\Psi}(\vq))
+    \delta_s(\vs) = -\nabla_q \cdot \mathbf{\Psi}(\vq) - f \, \vnhat \cdot \nabla_q (\vnhat \cdot \mathbf{\Psi}(\vq))
 \end{equation}
 and that when combined with the results of part a) in k-space this is equivalent to
 \begin{equation}
