@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\input{mathdef}
+
+\usepackage{siunitx}
+\sisetup{separate-uncertainty,per-mode=symbol,binary-units}
+\DeclareSIUnit\Msolar{M_\odot}
+\DeclareSIUnit\degr{deg}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\dBm{dBm}
+\DeclareSIUnit\jansky{Jy}
+\DeclareSIUnit\beam{beam}
+\DeclareSIUnit\h{h}
+\DeclareSIUnit\GeV{GeV}
+
+\author{Tristan Pinsonneault-Marotte, Richard Shaw}
+\title{PHYS 571: Homework 5}
+\date{\today}
+
+\renewcommand\diff{\mathrm{d}}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{itemize}
+    \item \textbf{Deadline}: Thursday 5th June, 11:59 PM Pacific Time
+    \item All parts carry equal weight.
+    \item Please work in the same group you did for homework 4.
+    \item However, you \emph{must} submit your \emph{own} notebook of the assignment and understand all parts of it.
+    \item We will look at both submissions for you group, but will only grade one fully, and you will both receive the grade for that one.
+\end{itemize}
+
+\section{The Cosmic Microwave Background}
+
+The CMB power spectrum primarily is a probe of the apparent angular distribution of matter on the last scattering surface.
+
+\paragraph{a)} There are three key ingredients controlling the CMB power spectrum, the sound horizon at recombination, and the diffusion damping scale, as well as a key time, the epoch of matter radiation equality. Taking the CMB temperature as fixed, explain why fixing these ingredients is equivalent to fixing $\Omega_b h^2$ and $\Omega_c h^2$.
+
+\paragraph{b)} The angular scale in the CMB corresponding to a fixed physical scale at recombination is constant for all cosmological parameters that give the same angular diameter distance to the last scattering surface.
+
+While fixing $\Omega_b h^2$ and $\Omega_c h^2$ to the Planck best fit values, find at least three additional combinations of $\Omega_k$ and $H_0$ that give the the same distance to last scattering as the Planck best fit parameters. These should be between $\Omega_k = -0.3$ and $\Omega_k = 0$. You may want to use the routine you wrote to calculate $S_k(\chi(z))$ in homework 2.
+
+\paragraph{c)} While again keeping $\Omega_b h^2$ and $\Omega_c h^2$ fixed and all other parameters with the Planck best fit values, make a plot of the CMB power spectrum for the different combinations of $H_0$ and $\Omega_k$ you found in part b). Above $\ell \sim 30$ these should look indistinguishable. This is the \emph{geometric degeneracy} of the CMB.
+
+Explain the origin of the differences at low-$\ell$.
+
+\noindent \emph{Hint: to calculate the power spectrum you should use the CAMB package you installed for Homework 4. You can calculate the CMB power spectrum like this:}
+\begin{verbatim}
+    import camb
+    cparams = camb.CAMBparams(
+        ombh2=0.05 * 0.67**2, omch2=0.25 * 0.67**2, H0=67.0, omk=0.0
+    )
+    res = camb.get_results(cparams)
+    Cl_all = res.get_cmb_power_spectra(
+        lmax=1000, spectra=("total",), CMB_unit="K"
+    )
+    Cl_temp = Cl_all["total"][:, 0]
+\end{verbatim}
+\emph{which gets the temperature power spectrum in Kelvin.}
+
+\end{document}
