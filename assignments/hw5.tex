@@ -45,7 +45,9 @@ The CMB power spectrum primarily is a probe of the apparent angular distribution
 
 \paragraph{b)} The angular scale in the CMB corresponding to a fixed physical scale at recombination is constant for all cosmological parameters that give the same angular diameter distance to the last scattering surface.
 
-While fixing $\Omega_b h^2$ and $\Omega_c h^2$ to the Planck best fit values, find at least three additional combinations of $\Omega_k$ and $H_0$ that give the the same distance to last scattering as the Planck best fit parameters. These should be between $\Omega_k = -0.3$ and $\Omega_k = 0$. You may want to use the routine you wrote to calculate $S_k(\chi(z))$ in homework 2.
+While fixing $\Omega_b h^2$ and $\Omega_c h^2$ to the Planck best fit values, find at least three additional combinations of $\Omega_k$ and $H_0$ that give the the same proper distance (i.e. $S_k(\chi)$, but you should convince yourself that is the right one of the several distance measures) to last scattering as the Planck best fit parameters. These should be between $\Omega_k = -0.3$ and $\Omega_k = 0$. You may want to use the routine you wrote to calculate $S_k(\chi(z))$ in homework 2.
+
+\emph{Hint: there are several ways to do this that are elegant and efficient, but if you're feeling lazy, you can probably just brute force this by picking a few values of $\Omega_k$ and graphing the distance to the redshift of recombination for a range of values of $H_0$ to find the solution.}
 
 \paragraph{c)} While again keeping $\Omega_b h^2$ and $\Omega_c h^2$ fixed and all other parameters with the Planck best fit values, make a plot of the CMB power spectrum for the different combinations of $H_0$ and $\Omega_k$ you found in part b). Above $\ell \sim 30$ these should look indistinguishable. This is the \emph{geometric degeneracy} of the CMB.
 
@@ -63,6 +65,6 @@ Explain the origin of the differences at low-$\ell$.
     )
     Cl_temp = Cl_all["total"][:, 0]
 \end{verbatim}
-\emph{which gets the temperature power spectrum in Kelvin.}
+\emph{which gets the temperature power spectrum in Kelvin. If you really get stuck installing or using CAMB, drop me an email and I can help out.}
 
 \end{document}
